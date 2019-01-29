@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Jekyll v3.8.5">
-  <title>Syed Yaseen</title>
+  <title>{{ blog.title }}</title>
 
   <!-- Bootstrap core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
@@ -36,8 +36,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav ml-auto">
-          <a class="nav-item nav-link active" href="https://github.com/yaseenabbasrizvi" title="Go to my Github Profile">Github</a>
-          <a class="nav-item nav-link active" href="{% static 'Resume.pdf' %}">Resume</a>
+          <a class="nav-item nav-link" href="https://github.com/yaseenabbasrizvi" title="Go to my Github Profile">Github</a>
+          <a class="nav-item nav-link" href="{% static 'Resume.pdf' %}">Resume</a>
           <a class="nav-item nav-link active" href="{% url 'allblogs' %}">Blog</a>
         </div>
       </div>
@@ -45,39 +45,24 @@
   </header>
 
   <main role="main">
-
-    <section class="jumbotron text-center">
-      <div class="container">
-        <h1 style="font-family:verdana;" class="jumbotron-heading">Syed Yaseen Abbas Rizvi</h1>
-        <hr />
-        <p style="font-family:courier;" class="lead text-muted">Computer science is not just for smart 'nerds' in hoodies coding in basements. Coding is extremely creative and is an integral part of almost every industry.</p>
-        <p>
-          <a href="mailto:yaseenabbasrizvi@gmail.com" class="btn btn-primary my-2">Email Me</a>
-        </p>
-        <img style="border-radius: 50%" src="{% static 'IMG_20181124_153349.jpg' %}" height="300" width="300" />
-      </div>
-    </section>
-
-    <div class="album py-5 bg-light">
-      <div class="container">
-
-        <div class="row">
-
-          {% for job in jobs.all %}
-          <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-              <img class="card-img-top" src="{{ job.image.url }}" />
-              <div class="card-body">
-                <p class="card-text">{{ job.summary }}</p>
-                </div>
-            </div>
-          </div>
-         {% endfor %}
+    <div class="container">
 
 
-          </div>
-      </div>
-    </div>
+
+
+
+  <h1 class="text-center pt-3">{{ blog.title }}</h1>
+  <p class="text-center">{{ blog.pub_date_pretty }}</p>
+  <img class="img-fluid" src="{{ blog.image.url }}">
+  <br />
+  <br />
+  <p>{{ blog.body }}</p>
+
+
+
+</div>
+
+
 
   </main>
 
